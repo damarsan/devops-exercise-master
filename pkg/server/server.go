@@ -31,6 +31,7 @@ func (s Server) Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.WriteHeader(http.StatusCreated)
+	// nolint:errcheck
 	w.Write([]byte(order.ID))
 }
 
@@ -53,5 +54,6 @@ func (s Server) Get(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	// nolint:errcheck
 	w.Write(body)
 }
